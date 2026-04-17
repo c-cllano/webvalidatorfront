@@ -1,0 +1,13 @@
+@if(getProgressbarDisplay()){
+  @defer(when getProgressbarDisplay()){
+<div class="progress-container skeleton">
+   <ul class="progress-bar">
+      @for (step of steps(); track $index) {
+          <li class="progress-step" 
+             [style.background]="step.index <= currentIndex() ? getProgressbarBackground() : '#DDDFE2'">
+          </li>
+      } 
+    </ul>
+</div>
+   }
+}

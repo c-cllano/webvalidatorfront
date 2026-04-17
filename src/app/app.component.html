@@ -1,0 +1,18 @@
+@if(!isBlocked()){
+@defer(when !isBlocked()){
+@if (this.stateService.state()===process()) {
+<app-header></app-header>
+}
+<main>
+    <app-pwabanner></app-pwabanner>
+    <router-outlet />
+</main>
+@if (this.stateService.state()===process()) {
+<app-footer [functionMap]="functionMap()"></app-footer>
+}
+}}
+@if (isBlocked()) {
+@defer(when isBlocked()){
+<app-orientation-block></app-orientation-block>
+}}
+<app-spinner></app-spinner>

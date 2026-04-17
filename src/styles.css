@@ -1,0 +1,227 @@
+/**************** variables******************/
+
+@import './../node_modules/quill/dist/quill.core.css';
+@import './../node_modules/quill/dist/quill.snow.css';
+
+
+:root {
+    /* Colores */
+    --color-primary: #349BD0;
+    --color-secondary: #F5F9FD;
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray-900: #191919;
+    --gray-800: #313232;
+    --gray-700: #494A4B;
+    --gray-600: #626364;
+    --gray-500: #7B7C7E;
+    --gray-400: #939597;
+    --gray-300: #ACAEB0;
+    --gray-200: #C4C6C9;
+    --gray-100: #DDDFE2;
+    --gray-50: #F5F8FB;
+    /* Tamaños de texto */
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+    --font-size-3xl: 1.875rem;
+    /* 30px */
+    --font-size-4xl: 2.25rem;
+    /* 36px */
+    /* Base: Mobile first */
+    --scale: 1;
+    /* Escala base en mobile */
+    /* Font Weights */
+    --font-weight-100: 100;
+    --font-weight-200: 200;
+    --font-weight-300: 300;
+    --font-weight-400: 400;
+    --font-weight-500: 500;
+    --font-weight-600: 600;
+    --font-weight-700: 700;
+    --font-weight-800: 800;
+    --font-weight-900: 900;
+    /* Espaciado */
+    --spacing-1: 0.25rem;
+    /* 4px */
+    --spacing-2: 0.5rem;
+    /* 8px */
+    --spacing-3: 0.75rem;
+    /* 12px */
+    --spacing-4: 1rem;
+    /* 16px */
+    --spacing-5: 1.25rem;
+    /* 20px */
+    --spacing-6: 1.5rem;
+    /* 24px */
+    --spacing-8: 2rem;
+    /* 32px */
+    --spacing-10: 2.5rem;
+    /* 40px */
+    --spacing-12: 3rem;
+    /* 48px */
+    /* Bordes redondeados*/
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 0.7rem;
+    /* Líneas bordeadas */
+    --border-thin: 0.063rem;
+    /* 1px */
+    --border-regular: 0.125rem;
+    /* 2px */
+    --border-thick: 0.188rem;
+    /* 3px */
+    /* Sombras */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    /* Tamaños de iconos */
+    --icon-size-sm: 1rem;
+    --icon-size-md: 1.5rem;
+    --icon-size-lg: 2rem;
+    --icon-size-xl: 3rem;
+}
+
+
+
+/***************************************************/
+
+
+/********************* Global Styles *************************/
+
+body,
+html {
+  /*  height: 100%;*/
+    margin: 0;
+    font-family: Poppins;
+    font-size: calc(var(--font-size-base) * var(--scale));
+    height: var(--vh);
+}
+
+
+
+
+.quill-preview {
+  max-width: 100%;
+  width: 100%;
+  line-height: 1.1;
+  word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+  &.ql-editor {
+    min-height: auto;
+    height: auto;
+    overflow-y: visible;
+    padding: 0px;
+  }
+   &.ql-editor ol > li {
+    list-style-type: decimal !important;
+    padding-left: 0.5rem !important;
+  }
+  &.ql-editor ul {
+    padding-left: 1.5rem !important;
+  }
+  &.ql-editor ul > li {
+    list-style-type: disc !important;
+    padding-left: 0.5rem !important;
+  }
+}
+
+
+strong {
+    font-weight: 700 !important;
+}
+
+.ql-align-center.ql-align-center {
+  margin-bottom: 1.25rem;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 768px) {
+    body,
+    html {
+        font-size: var(--font-size-base) * 1.25;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+
+    :root {
+        --scale: 1.25; /* Escala aumentada */
+    }
+}
+
+/******************************************/
+
+
+/****************** Efecto Skeleton ******************/
+
+
+/* Efecto Skeleton */
+
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: #e0e0e0;
+    border-radius: var(--border-radius-md);
+    border: #e0e0e0;
+}
+
+
+/* Efecto de parpadeo */
+
+.skeleton::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+
+/* Oculta imágenes dentro de Skeleton sin eliminarlas */
+
+.skeleton img {
+    visibility: hidden;
+}
+
+
+/* Animación del efecto */
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+
+/***************************************/
+
+
+/* ============ UTILITY CLASSES ============ */
+
+.material-symbols-rounded {
+    display: grid !important;
+    font-size: var(--font-size-3xl) !important;
+}
+
+
+/*****************************/

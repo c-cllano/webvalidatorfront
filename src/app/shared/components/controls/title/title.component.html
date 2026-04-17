@@ -1,0 +1,9 @@
+@defer(when getDisplayTitle() || getDisplayDescription()){
+<div class="content--center title">
+    @if (getDisplayTitle()) {
+    <h1 class="skeleton" appTitle [customStyles]="CustomStylesTitle()"  [typeTitleDefaul]="'Title'">{{TextTitle()}}</h1>
+    } @if (getDisplayDescription()) {
+    <p class="skeleton" appTitle [customStyles]="CustomStylesDescription()"   [typeTitleDefaul]="'Description'">{{TextDescription()}}</p>
+    }
+</div>
+}

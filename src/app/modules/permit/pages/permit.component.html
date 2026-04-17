@@ -1,0 +1,11 @@
+<app-content>
+    @defer(when displayTitle() || displayDescription()){
+    <app-title [configTitle]="contentTitle()" [configDescription]="contentDescription()"></app-title>
+    }
+    @defer(when displayImg()){
+    <app-img [config]="image_content()"></app-img>
+    }
+    @defer(when displaySubtitle() || displayParagraph()){
+    <app-subtitle [configSubtitle]="contentSubtitle()" [confiParagraph]="contentParagraph()"></app-subtitle>
+    }
+</app-content>

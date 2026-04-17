@@ -1,0 +1,7 @@
+@defer(when getDisplaySubtitle() || getDisplayParagraph()){ @if (getDisplaySubtitle()) {
+<h2 class="skeleton" appSubtitle [customStyles]="customStylesSubtitle()" [typeTitleDefaul]="'subtitle'">
+    {{ TextSubtitle() }}
+</h2>
+} @if (getDisplayParagraph()) {
+<div class="text__block quill-preview ql-editor skeleton" appSubtitle [customStyles]="customStylesParagraph()" [typeTitleDefaul]="'paragraph'" [innerHTML]="TextParagraph()"></div>
+} }

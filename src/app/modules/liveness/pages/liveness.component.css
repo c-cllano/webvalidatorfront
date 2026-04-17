@@ -1,0 +1,246 @@
+/* ===== LAYOUT ===== */
+.content{
+  padding: 0 !important;
+}
+.page{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 16px;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.camera-wrap{
+  position:relative;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  overflow:hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  display:block;
+}
+
+.ring{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  pointer-events:none;
+  box-shadow:
+    inset 0 0 0 6px rgba(255,255,255,.9),
+    inset 0 0 60px rgba(0,0,0,.35);
+}
+
+.hidden{ display:none !important; }
+
+/* ===== PREVIEW + SKELETON ===== */
+.preview{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+.preview-card{
+  width: 400px;             /* Fijo 400 */
+  margin: 0 auto;
+  background: transparent;
+}
+
+.preview-thumb{
+  position: relative;
+  width: 400px;
+  height: 360px;
+  overflow: hidden;
+  background: #eeeeee;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  border: 0;
+  border-top: 3px solid #e5e7eb;
+  border-radius: 16px 16px 0 0;
+}
+
+
+.preview-img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity .35s ease, transform .35s ease;
+  display:block;
+}
+
+.preview-skeleton{
+  position:absolute; inset:0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #d6d6d6 0%, #e5e5e5 40%, #d6d6d6 80%);
+  background-size: 200% 100%;
+  animation: shimmer 1.15s linear infinite;
+  transition: opacity .25s ease, visibility .25s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes shimmer{
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Estado 'loading': skeleton visible, imagen oculta */
+.preview-thumb.loading .preview-img{
+  opacity: 0;
+  transform: scale(1.02);
+}
+.preview-thumb.loading .preview-skeleton{
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Cuando termina de cargar (no loading): imagen visible */
+.preview-thumb:not(.loading) .preview-img{
+  opacity: 1;
+  transform: scale(1);
+}
+.preview-thumb:not(.loading) .preview-skeleton{
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ===== MENSAJE DE ERROR ===== */
+.error-text{
+  margin-top: 2px;
+  color: #DE1135;
+  font-size: 16px;
+  text-align: justify;
+}
+
+/* Marco rojo por clase .error */
+.preview-thumb.error{
+  border: 0 !important;
+  border-top: 3px solid #DE1135 !important;
+  border-radius: 16px 16px 0 0;
+  box-shadow: inset 0 3px 0 rgba(222,17,53,.20),
+              0 6px 18px rgba(0,0,0,.12) !important;
+}
+
+
+/* Refuerzo: aro rojo interno superpuesto */
+.preview-thumb.error::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 3px #DE1135;
+  pointer-events: none;
+}
+
+/* Versión opcional si prefieres un div overlay en el HTML */
+.error-ring{
+  position:absolute; inset:0; border-radius:inherit;
+  box-shadow: inset 0 0 0 3px #DE1135;
+  pointer-events:none;
+}
+
+/* ===== Overlay envío (animación, sin barra) ===== */
+.submit-overlay{
+  position:absolute; inset:0;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(1px);
+  display:flex; align-items:center; justify-content:center;
+  transition: opacity .25s ease;
+  z-index: 5;                 /* por encima de la imagen/skeleton */
+  pointer-events: none;       /* no bloquea clics fuera de la caja */
+}
+
+/* “Barrido” de brillo por encima de la foto */
+.submit-sweep{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255,255,255,.15) 35%,
+    rgba(255,255,255,.35) 50%,
+    rgba(255,255,255,.15) 65%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  animation: sweep 1.4s ease-in-out infinite;
+}
+@keyframes sweep{
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* Caja flotante centrada (spinner + texto) */
+.submit-box{
+  min-width: 240px;
+  max-width: 320px;
+  background: rgba(255,255,255,.92);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  text-align:center;
+  pointer-events: auto;       /* sí permite interacción dentro */
+}
+
+.submit-text{
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Spinner circular */
+.spinner{
+  width: 28px; height: 28px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  border: 3px solid rgba(31,41,55,.25);
+  border-top-color: #1f2937;
+  animation: spin .9s linear infinite;
+}
+
+.camera-wrap {
+  position: relative;
+}
+.camera-wrap.loading .camera-skeleton {
+  display: block;
+}
+.camera-skeleton {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background: linear-gradient(90deg, #eee 25%, #f5f5f5 37%, #eee 63%);
+  background-size: 400% 100%;
+  animation: skel 1.2s ease-in-out infinite;
+  border-radius: 12px;
+}
+@keyframes skel { 0%{background-position:100% 0} 100%{background-position:0 0} }
+
+@keyframes spin{ to { transform: rotate(360deg); } }
+
+/* ===== REDUCE MOTION (accesibilidad) ===== */
+@media (prefers-reduced-motion: reduce){
+  .preview-img{ transition: none; }
+  .preview-skeleton{ animation: none; }
+  .submit-overlay{ transition: none; }
+  .submit-sweep{ animation: none; }
+  .spinner{ animation: none; }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 420px){
+  .preview-card,
+  .preview-thumb{
+    width: 92vw;
+    height: 92vw;
+  }
+}

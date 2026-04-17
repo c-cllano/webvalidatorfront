@@ -1,0 +1,21 @@
+@for (item of visible_bullets(); track $index) {
+        <div class="list__item skeleton" >
+          @if(item?.bullet_img && getBulletIcon(item)!==''){
+            <div class="img"
+              [style.align-items]="item.bullet_img['align-items']"
+              [style.justify-content]="item.bullet_img['justify-content']">
+              <img [src]="getBulletIcon(item)"
+              [style.width]="numberToRem(item.bullet_img.width)"
+              [style.height]="numberToRem(item.bullet_img.height)"
+              alt="No hay imagen">
+           </div>
+          }
+          <div appBullets  
+          [style.align-items]="item.bullet_text['align-items']"
+          [style.text-align]="item.bullet_text['text-align']"  
+          [innerHTML]="truncateText(item?.bullet_text?.text || '')">
+         </div>
+        </div>
+    }
+
+

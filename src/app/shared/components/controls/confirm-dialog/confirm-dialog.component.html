@@ -1,0 +1,27 @@
+<div #modal class="modal" [class.active]="visible()" (click)="onOverlayClick($event)">
+  <div class="modal__content" (click)="$event.stopPropagation()">
+    <div class="modal-handle">
+      <div class="modal-handle-above" [style.background-color]="getColorIcons()" (click)="onCancel()"></div>
+    </div>
+    <span class="material-symbols-rounded modal__close"  translate="no" [style.color]="getColorIcons()" (click)="onCancel()">
+      close
+    </span>
+    <h2 appSubtitle [typeTitleDefaul]="'subtitle'">{{ getConfigTitle() }}</h2>
+    <p class="skeleton" appTitle [typeTitleDefaul]="'Description'">{{getConfigDescription()}}</p>
+
+    <!---->
+    <footer class="footer">
+      <div class="content--foot">
+        <div class="footer-buttons">
+          <app-button [configButton]="getConfigButton_main()" [typeButton]="Button_main()"
+            [functionMap]="functionMap"></app-button>
+          <app-button [configButton]="getConfigButton_secondary()" [typeButton]="Button_secondary()"
+            [functionMap]="functionMap"></app-button>
+        </div>
+      </div>
+        <div class="modal-handle">
+                <div class="modal-handle-below" (click)="onCancel()"></div>
+            </div>
+    </footer>
+  </div>
+</div>

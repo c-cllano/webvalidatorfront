@@ -1,0 +1,21 @@
+<footer>
+    <div class="content--foot"
+        [class.inverted]="invertButtonPosition()">
+        @if (atdpDisplay() && !isDesktop()) {
+        <app-atdp></app-atdp>
+        }
+        <div class="footer-buttons" [class.inverted]="invertButtonPosition()">
+            @if (getConfigButton_main_Display()) {
+            @defer(when getConfigButton_main_Display()){
+            <app-button [configButton]="getConfigButton_main()" [invertButtonPosition]="invertButtonPosition()" [typeButton]="Button_main()"
+                [functionMap]="functionMap()" [disabled]="atdpDisplay()?!eventCheckedAtdp():DisplayButton()"></app-button>
+            }}
+            @if(getConfigButton_secondary_Display()){
+            @defer(when getConfigButton_secondary_Display()){
+            <app-button (click_event)="SaveATDPTransaction()" [invertButtonPosition]="invertButtonPosition()" [configButton]="getConfigButton_secondary()"
+                [typeButton]="Button_secondary()" [functionMap]="functionMap()"
+                [disabled]="atdpDisplay()?!eventCheckedAtdp():DisplayButton()"></app-button>
+            }}
+        </div>
+    </div>
+</footer>

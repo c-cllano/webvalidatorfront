@@ -1,0 +1,6 @@
+@defer(when getDisplay()){ @if (getDisplay()){
+<button button class="skeleton"
+    [customStyles]="(typeButton()==='button_secondary'? getGlobalButtonbutton_secondary() :getGlobalButtonbutton_main())" (click)="executeClickEvent()">
+    {{getText()}}
+</button>
+}}

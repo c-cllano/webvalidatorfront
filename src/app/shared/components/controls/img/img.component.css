@@ -1,0 +1,48 @@
+.ico-animate {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+    /* para separación */
+}
+
+.iu {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    display: inline-block;
+    object-fit: contain;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: max-content;
+    max-width: 160px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 8px;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.ico-animate:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.u-align-center {
+    text-align: center;
+}
+
+.u-hidden {
+    display: none !important;
+}

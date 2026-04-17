@@ -1,0 +1,12 @@
+<app-content>
+    @defer(when displayTitle() || displayDescription()){
+    <app-title  class="Permitdenied" [configTitle]="contentTitle()" [configDescription]="contentDescription()"></app-title>
+    } @defer(when displayImg()){
+    <app-img  class="Permitdenied" [config]="image_content()"></app-img>
+    }
+    @defer(when displaySubtitle() || displayParagraph()){
+    <app-subtitle  class="Permitdenied"  [configSubtitle]="contentSubtitle()" [confiParagraph]="contentParagraph()"></app-subtitle>
+    } @defer(when bulletDisplay()){
+    <app-bullets  class="Permitdenied" [bullet_list]="bullet_list()"></app-bullets>
+    }
+</app-content>

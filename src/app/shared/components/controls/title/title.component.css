@@ -1,0 +1,33 @@
+h1 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 1rem 0;
+}
+
+.title {
+    margin: 1rem 1rem 0;
+     max-width: 600px;
+}
+
+:root {
+    --scale: 1;
+}
+
+@media screen and (min-width: 1024px) {
+    .title {
+        margin: 1rem 0 0;
+    }
+    .content--center {
+        width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 768px) {
+     :root {
+        --scale: 1.25;
+        /* Escala aumentada */
+    }
+}
