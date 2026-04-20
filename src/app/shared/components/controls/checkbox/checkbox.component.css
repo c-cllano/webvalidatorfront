@@ -1,0 +1,22 @@
+
+input[type="checkbox"] {
+    width: 1.563rem;
+    height: 1.563rem;
+    margin-right: 1rem;
+    border: var(--border-thin) solid var(--gray-300);
+
+}
+.custom-checkbox {
+    display: flex;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .custom-checkbox input[type="checkbox"]{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .custom-checkbox input[type="checkbox"]:checked::after {
+    border-width: 0 3px 3px 0;
+}
+}

@@ -1,0 +1,213 @@
+<app-content>
+    @defer(when displayTitle() || displayDescription()){
+    <app-title [configTitle]="contentTitle()" [configDescription]="contentDescription()"></app-title>
+    } @defer(when displayImg()){
+    <app-img [config]="image_content()"></app-img>
+    }
+
+    @defer(when displaySubtitle() || displayParagraph()){
+    <app-subtitle [configSubtitle]="contentSubtitle()" [confiParagraph]="contentParagraph()"></app-subtitle>
+    }
+    @defer(when bulletDisplay()){
+    <app-bullets [bullet_list]="bullet_list()"></app-bullets>
+    }
+
+    <div class="contenedor-documentos">
+        <div class="bloque-documento">
+
+            @if (subtitle1?.display) {
+            <p appSubtitle [typeTitleDefaul]="'subtitle'" [style.text-align]="subtitle1?.['text-align']">
+                {{ subtitle1?.text }}</p>
+            }
+
+            @if (imageContent1?.display) {
+            @if (isCargandoFrontal()) {
+            <div class="skeleton" [style.width.rem]="imageContent1?.width" [style.height.rem]="imageContent1?.height">
+            </div>
+            } @else {
+            <div class="imagen-container" [style.width.rem]="imageContent1?.width"
+                [style.height.rem]="imageContent1?.height"
+                [class.validation-success]="frontalValidationResult() === true && !isEscaneandoFrontal()"
+                [class.validation-error]="frontalValidationResult() === false && !isEscaneandoFrontal()">
+                @if (imagenFrontal()) {
+                <img [src]="imagenFrontal()" [style.width.rem]="imageContent1?.width"
+                    [style.height.rem]="imageContent1?.height" [style.objectFit]="'contain'" alt="Imagen frontal" />
+                } @else {
+                <img [src]="imageContent1?.img" [style.width.rem]="imageContent1?.width"
+                    [style.height.rem]="imageContent1?.height" [style.objectFit]="'contain'" alt="Imagen frontal" />
+                }
+
+                @if (isEscaneandoFrontal()) {
+                <div class="scanner-overlay">
+                    <div class="scanner-line"></div>
+                </div>
+                }
+
+                @if (frontalValidationResult() !== null && !isEscaneandoFrontal() && frontalValidationResult()) {
+                <div class="resultado-overlay">
+                    <div class="icono-exito">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="#4CAF50" />
+                            <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                }
+
+                @if (showFrontalErrorIcon()) {
+                <div class="resultado-overlay">
+                    <div class="icono-error">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="#F44336" />
+                            <path d="M15 9l-6 6m0-6l6 6" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                }
+            </div>
+            }
+            }
+
+            <input type="file" accept="image/*" hidden #fileInputFrontal (change)="onFileChange($event, 'frontal')" />
+
+
+            @if (nombreFrontal() && !isCargandoFrontal() && !(showErrorMessages() && frontalMessage())) {
+            <div class="nombre-archivo">
+                <img src="UploadFile.svg" alt="Icono archivo" class="icono-archivo" />
+                {{ nombreFrontal() }}
+                @if (!(showErrorMessages() && frontalValidationResult() === false)) {
+                <img src="Close.svg" alt="Eliminar" class="icono-eliminar" (click)="eliminarImagen('frontal')" />
+                }
+            </div>
+            }
+
+            @if (showErrorMessages() && frontalMessage()) {
+            <div class="error-message">
+                {{ frontalMessage() }}
+            </div>
+            }
+
+            @if ((!imagenFrontal() && !isCargandoFrontal()) || (showErrorMessages() && frontalMessage())) {
+            <button button [customStyles]="getGlobalButtonbutton_main()" (click)="fileInputFrontal.click()">
+                {{ frontalButtonText() }}
+            </button>
+            }
+        </div>
+
+        <div class="bloque-documento">
+
+            @if (subtitle2?.display) {
+            <p appSubtitle [typeTitleDefaul]="'subtitle'" [style.text-align]="subtitle2?.['text-align']">
+                {{ subtitle2?.text }}</p>
+            }
+
+            @if (imageContent2?.display) {
+            @if (isCargandoPosterior()) {
+            <div class="skeleton" [style.width.rem]="imageContent2?.width" [style.height.rem]="imageContent2?.height">
+            </div>
+            } @else {
+            <div class="imagen-container" [style.width.rem]="imageContent2?.width"
+                [style.height.rem]="imageContent2?.height"
+                [class.validation-success]="posteriorValidationResult() === true && !isEscaneandoPosterior()"
+                [class.validation-error]="posteriorValidationResult() === false && !isEscaneandoPosterior()">
+                @if (imagenPosterior()) {
+                <img [src]="imagenPosterior()" [style.width.rem]="imageContent2?.width"
+                    [style.height.rem]="imageContent2?.height" [style.objectFit]="'contain'" alt="Imagen posterior" />
+                } @else {
+                <img [src]="imageContent2?.img" [style.width.rem]="imageContent2?.width"
+                    [style.height.rem]="imageContent2?.height" [style.objectFit]="'contain'" alt="Imagen posterior" />
+                }
+
+                @if (isEscaneandoPosterior()) {
+                <div class="scanner-overlay">
+                    <div class="scanner-line"></div>
+                </div>
+                }
+
+                @if (posteriorValidationResult() !== null && !isEscaneandoPosterior() && posteriorValidationResult()) {
+                <div class="resultado-overlay">
+                    <div class="icono-exito">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="#4CAF50" />
+                            <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                }
+
+                @if (showPosteriorErrorIcon()) {
+                <div class="resultado-overlay">
+                    <div class="icono-error">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="#F44336" />
+                            <path d="M15 9l-6 6m0-6l6 6" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                }
+            </div>
+            }
+            }
+
+            <input type="file" accept="image/*" hidden #fileInputPosterior
+                (change)="onFileChange($event, 'posterior')" />
+
+
+            @if (nombrePosterior() && !isCargandoPosterior() && !(showErrorMessages() && reverseMessage())) {
+            <div class="nombre-archivo">
+                <img src="UploadFile.svg" alt="Icono archivo" class="icono-archivo" />
+                {{ nombrePosterior() }}
+                @if (!(showErrorMessages() && posteriorValidationResult() === false)) {
+                <img src="Close.svg" alt="Eliminar" class="icono-eliminar" (click)="eliminarImagen('posterior')" />
+                }
+            </div>
+            }
+
+            @if (showErrorMessages() && reverseMessage()) {
+            <div class="error-message">
+                {{ reverseMessage() }}
+            </div>
+            }
+
+            @if ((!imagenPosterior() && !isCargandoPosterior()) || (showErrorMessages() && reverseMessage())) {
+            <button button [customStyles]="getGlobalButtonbutton_main()" (click)="fileInputPosterior.click()">
+                {{ posteriorButtonText() }}
+            </button>
+            }
+        </div>
+
+
+    </div>
+
+    @if (mostrarError()) {
+    <div class="modal-error">
+        <div class="modal-contenido">
+            <div class="modal-icono">!</div>
+            <h3 class="modal-titulo">
+                @if (tipoError() === 'danada') {
+                La imagen está dañada
+                } @else if (tipoError() === 'formato') {
+                La imagen no se reconoce
+                } @else if (tipoError() === 'peso') {
+                La imagen es muy pesada
+                }
+            </h3>
+            <p class="modal-subtitulo">
+                @if (tipoError() === 'danada') {
+                Sube una nueva imagen en formato JPEG/JPG o PNG.
+                } @else if (tipoError() === 'formato') {
+                Sube imágenes en formato JPEG/JPG o PNG.
+                } @else if (tipoError() === 'peso') {
+                Sube imágenes hasta de 10 MB.
+                }
+            </p>
+            <button button [customStyles]="getGlobalButtonbutton_main()" (click)="cerrarModal()">Reintentar</button>
+            <img src="Close.svg" alt="Cerrar" class="modal-cerrar" (click)="cerrarModal()" />
+        </div>
+    </div>
+    }
+</app-content>

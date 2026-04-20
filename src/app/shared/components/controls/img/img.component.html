@@ -1,0 +1,10 @@
+ @if (displayImg()){ @defer(when displayImg()){
+<div class="ico-animate u-align-center skeleton">
+    <img appImg [customStyles]="config()" class="iu" [src]="getImg()" [alt]="'Imagen no disponible'" />
+    @if (displayTooltip()) { @if (getTextTooltip()!=='') {
+    <div class="tooltip-text">
+        {{ getTextTooltip() }}
+    </div>
+    } }  
+</div>
+} }

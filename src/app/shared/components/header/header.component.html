@@ -1,0 +1,89 @@
+<header class="header">
+    <div class="sticky">
+        <div class="content--center">
+            <nav class="nav">
+                @if(getLeftDisplay()){
+                @defer(when getLeftDisplay()){
+                <div class="box__left skeleton">
+                    <div class="component_one">
+                        @if (getLeftType()) {
+                        @if (getIconFontLoaded()) {
+                        <span class="material-symbols-rounded" [style.color]="getColorIcons()"
+                            translate="no"
+                            [ngClass]="getLeftIsFilled() ?'filled':'no-filled'"
+                            (click)="executeClickEvent(getLeftClick_event())">
+                            {{ getLeftName() }}
+                        </span>
+                        }@else {
+                        <span class="icon-placeholder"></span>
+                        }
+                        }@else {
+                        <img [src]="getLeftName()" class="logo--resize"
+                            (click)="executeClickEvent(getLeftClick_event())" alt="Imagen no disponible" />
+                        }
+                    </div>
+                </div>
+                }}
+                @if(getCenterDisplay()){
+                @defer(when getCenterDisplay()){
+                <div class="box__center skeleton">
+                    <div class="component_two">
+                        @if (getCenterType()) {
+                        @if (getIconFontLoaded()){
+                        <span class="material-symbols-rounded" [style.color]="getColorIcons()"
+                            translate="no"
+                            [ngClass]="getCenterIsFilled() ?'filled':'no-filled'">
+                            {{ getCenterName() }}
+                        </span>
+                        }@else {
+                        <span class="icon-placeholder"></span>
+                        }
+                        }@else {
+                        <img [src]="getCenterName()" class="logo--resize" alt="Imagen no disponible" />
+                        }
+                    </div>
+                </div>
+                }}
+                @if (getRightDisplay()) {
+                @defer(when getRightDisplay()){
+                <div class="box__right skeleton">
+                    <div class="component_three">
+                        @if (getRightType()) {
+                        @if (getIconFontLoaded()){
+                        <span class="material-symbols-rounded" [style.color]="getColorIcons()"
+                            translate="no"
+                            [ngClass]="getRightIsFilled() ?'filled':'no-filled'"
+                            (click)="executeClickEvent(getRightClick_event())">
+                            {{ getRightName() }}
+                        </span>
+                        }@else {
+                        <span class="icon-placeholder"></span>
+                        }
+                        }@else {
+                        <img [src]="getRightName()" class="logo--resize"
+                            (click)="executeClickEvent(getRightClick_event())" alt="Imagen no disponible" />
+                        }
+                    </div>
+                </div>
+                }}
+            </nav>
+        </div>
+    </div>
+
+    @if (getProgressbarDisplay()) {
+    @defer(when getProgressbarDisplay()){
+    <div class="content--center">
+        <app-progress-bar></app-progress-bar>
+    </div>
+    }}
+</header>
+
+@if (modalDisplay()){
+@defer(when modalDisplay()){
+<app-modal [visible]="showModal()" [config]="modalConfig()" (closed)="showModal.set(false)" [ishtml]="false">
+</app-modal>
+}}
+
+<app-confirm-dialog [visible]="confirmVisible()" [config]="configData()" (accepted)="onAccept()"
+    (cancelled)="onCancel()">
+</app-confirm-dialog>

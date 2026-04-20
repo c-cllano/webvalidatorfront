@@ -1,0 +1,83 @@
+<app-content>
+  @defer(when displayTitle() || displayDescription()){
+  <app-title
+    [configTitle]="contentTitle()"
+    [configDescription]="contentDescription()"
+  >
+  </app-title>
+  }
+
+  <div class="page">
+    <!-- Cámara: oculta cuando isPreview() es true -->
+    <div class="camera-wrap" [class.hidden]="isPreview()">
+      <video #videoEl autoplay playsinline muted></video>
+      <div class="ring"></div>
+    </div>
+
+    <!-- Preview 1ª foto (con skeleton, overlay animado y manejo de error) -->
+    <div class="preview" [class.hidden]="!isPreview()">
+      <div class="preview-card">
+        <div
+          class="preview-thumb"
+          [class.loading]="!imgLoaded()"
+          [class.error]="!!errorMsg()"
+          [attr.aria-invalid]="errorMsg() ? 'true' : null"
+          [attr.aria-busy]="isSubmitting() ? 'true' : 'false'"
+          role="img"
+          [attr.aria-describedby]="errorMsg() ? 'error-text' : null"
+          [attr.aria-label]="
+            errorMsg() ? 'Vista previa con error' : 'Vista previa de la captura'
+          "
+        >
+          <!-- Imagen capturada -->
+          <img
+            id="preview-img"
+            class="preview-img"
+            [src]="imgSrc() ?? ''"
+            alt="Foto capturada"
+            decoding="async"
+            loading="eager"
+            (load)="onImgLoad()"
+            (error)="onImgError()"
+          />
+
+          <!-- Skeleton mientras carga la imagen -->
+          <div class="preview-skeleton" aria-hidden="true"></div>
+
+          <!-- Overlay de procesamiento (animación sin barra) -->
+          @if (isSubmitting()) {
+          <div
+            class="submit-overlay"
+            aria-live="polite"
+            aria-busy="true"
+            aria-label="Procesando fotografías…"
+          >
+            <div class="submit-sweep" aria-hidden="true"></div>
+          </div>
+          }
+
+          <!-- Refuerzo visual del borde rojo si hay error -->
+          @if (errorMsg()) {
+          <div class="error-ring" aria-hidden="true"></div>
+          }
+        </div>
+      </div>
+
+      @if (errorMsg()) {
+      <!-- Región de alertas accesible -->
+      <div>
+        <p
+          id="error-text"
+          class="error-text"
+          role="alert"
+          aria-live="assertive"
+        >
+          {{ errorMsg() }}
+        </p>
+      </div>
+      }
+    </div>
+  </div>
+
+  <canvas #canvasEl class="hidden"></canvas>
+</app-content>

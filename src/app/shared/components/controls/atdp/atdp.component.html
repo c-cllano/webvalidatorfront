@@ -1,0 +1,15 @@
+<div class="personal-data"  class="skeleton">
+    <app-checkbox [ngModel]="eventCheckedAtdp()" (checked)="eventCheckedAtdp()" (ngModelChange)="eventChecked($event)">
+        <p  appSubtitle
+                [typeTitleDefaul]="'paragraph'">
+            {{atdpText()}}&nbsp;<a (click)="executeClickEvent(atdpClickEvent())">{{atdpTextLink()}}</a>
+        </p>
+    </app-checkbox>
+</div>
+
+@if (atdpDisplay()){
+@defer(when atdpDisplay()){
+<app-modal [visible]="showModal()" [config]="modalConfig()" (closed)="showModal.set(false)" [ishtml]="ishtmlModal()"
+    [content]="htmlModal()">
+</app-modal>
+}}

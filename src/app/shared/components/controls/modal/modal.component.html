@@ -1,0 +1,60 @@
+<div #modal class="modal" [class.active]="visible()" (click)="onOverlayClick($event)">
+    <div class="modal__content">
+        <div class="modal-handle">
+            <div class="modal-handle-above" [style.background-color]="getColorIcons()" (click)="closeModal()"></div>
+        </div>
+        <span class="material-symbols-rounded modal__close"  translate="no" [style.color]="getColorIcons()" (click)="closeModal()">
+            close
+        </span>
+        <div class="modal__body scroll-html">
+            @if (ishtml()) {
+            @defer (when atdpModalTitleDisplay()) {
+            <app-title [configTitle]="atdpModalTitle()"></app-title>
+            }
+            @defer (when atdpModalSubtitleDisplay()) {
+            <app-subtitle [configSubtitle]="atdpModalSubtitle()">
+            </app-subtitle>
+            }
+            <div class="skeleton" [style.font-family]="atdpfontfamily()" [style.color]="atdpColor()" [innerHTML]="content()"></div>
+            } @else {
+            @defer (when titleDisplay() || descriptionDisplay()) {
+            <app-title [configTitle]="title()" [configDescription]="description()"></app-title>
+            }
+            @defer (when imageContentDisplay()) {
+            <app-img [config]="imageContent()"></app-img>
+            }
+            @defer (when subtitleDisplay() || paragraphDisplay()) {
+            <app-subtitle [configSubtitle]="subtitle()" [confiParagraph]="paragraph()">
+            </app-subtitle>
+            }
+            @defer (when bulletListDisplay()) {
+            <app-bullets [bullet_list]="bulletList()"></app-bullets>
+            }
+            }
+        </div>
+        <footer class="footer">
+            <div class="content--foot" [class.inverted]="invertButtonPosition()">
+                <div class="footer-buttons" [class.inverted]="invertButtonPosition()">
+                    @if (ishtml()){
+                    @defer (when ishtml()){
+                    <app-button [configButton]="atdpModalButton_main()" [typeButton]="Button_main()"
+                        [functionMap]="functionMap"></app-button>
+                    }
+                    }@else {
+                    @defer (when mainButtonDisplay()) {
+                    <app-button [configButton]="getConfigButton_main()" [invertButtonPosition]="invertButtonPosition()"  [typeButton]="Button_main()"
+                        [functionMap]="functionMap"></app-button>
+                    }
+                    @defer (when secondaryButtonDisplay()) {
+                    <app-button [configButton]="getConfigButton_secondary()" [invertButtonPosition]="invertButtonPosition()"  [typeButton]="Button_secondary()"
+                        [functionMap]="functionMap"></app-button>
+                    }
+                    }
+                </div>
+            </div>
+            <div class="modal-handle">
+                <div class="modal-handle-below" (click)="closeModal()"></div>
+            </div>
+        </footer>
+    </div>
+</div>

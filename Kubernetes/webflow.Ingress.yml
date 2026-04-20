@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webflow
+  namespace: pre-microservice
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2  
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "3600" 
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"    
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/limit-rpm: "100"
+    nginx.ingress.kubernetes.io/limit-burst-multiplier: "2"
+    nginx.ingress.kubernetes.io/limit-req-status-code: "429"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+      - okeypre.olimpiait.com
+    secretName: wildcard-olimpia  
+  rules:
+    - host: okeypre.olimpiait.com
+      http:
+        paths:
+          - path: /webflow(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: webflow
+                port:
+                  number: 4000
+    - host: okeypre.olimpiait.com
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: webflow
+                port:
+                  number: 4000

@@ -1,0 +1,5 @@
+<label  class="custom-checkbox skeleton">
+    <input type="checkbox" class="skeleton" [checked]="checked" (change)="toggle()" [disabled]="disabled"
+        [style.accent-color]="getColorIcons()" />
+    <span><ng-content></ng-content></span>
+</label>

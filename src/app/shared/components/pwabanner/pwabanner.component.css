@@ -1,0 +1,109 @@
+.pwa-banner {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #202c33;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  animation: slideUp 0.3s ease-out;
+  font-size: 14px;
+}
+
+.pwa-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.pwa-content span {
+  flex: 1;
+  line-height: 1.3;
+}
+
+.pwa-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.install-btn {
+  background: #00a884;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Desktop: esquina inferior izquierda */
+@media (min-width: 1024px) {
+  .pwa-banner {
+    left: 20px;
+    bottom: 20px;
+    transform: none;
+    max-width: 463px;
+  }
+}
+
+/* Tablet y móvil: modal centrado */
+@media (max-width: 1023px) {
+  .pwa-banner {
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    text-align: center;
+    padding: 14px 18px;
+    animation: fadeInScale 0.3s ease-out;
+  }
+
+  .pwa-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pwa-actions {
+    justify-content: center;
+  }
+}
+
+/* Animación para modal centrado */
+@keyframes fadeInScale {
+  from {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
