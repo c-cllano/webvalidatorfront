@@ -1,0 +1,59 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - DevOps
+      - README.md
+      - kubernetes
+    
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK 10'
+  inputs:
+    version: '10.x'
+
+# - task: SonarQubePrepare@7
+#   inputs:
+#     SonarQube: 'SonarQube'
+#     scannerMode: 'dotnet'
+#     # dotnetScannerVersion: '8.x'
+#     projectKey: 'OKey_WebValidatorBackend'
+#     projectName: 'OKey_WebValidatorBackend'
+
+- task: SonarQubePrepare@8
+  inputs:
+    SonarQube: 'SonarQube'
+    scannerMode: 'dotnet'
+    projectKey: 'OKey_WebValidatorBackend'
+    projectName: 'OKey_WebValidatorBackend'
+
+# - task: NuGetCommand@2
+#   inputs:
+#     restoreSolution: '$(solution)'
+#     feedsToUse: 'config'
+#     nugetConfigPath: 'nuget.config'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build Application'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: SonarQubeAnalyze@8
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
+
+- task: SonarQubePublish@8
+  inputs:
+    pollingTimeoutSec: '300'

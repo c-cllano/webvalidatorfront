@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apigateway-config
+  namespace: pre-microservice
+data:
+  OpenIddict__Base: "https://asv-aeu-prd-sso.azurewebsites.net"
+  ApiCentralLog__UrlBase: "https://10.160.196.100/apireceivelogs/"
+  ApiCentralLog__Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiI0IiwiZXhwIjoxODYzNTQ1Nzg4LCJpc3MiOiJNaUxvZ3MiLCJhdWQiOiJPbGltcGlhSVQifQ.rx677Q8TIclVw0939QWI_7ShmPbqKzBe6Bj6ePkTJ84
+  ConnectionStrings__AzureBlobStorage: DefaultEndpointsProtocol=https;AccountName=sacaeuprdnextgenid;AccountKey=4y+lId1I8AmSMiaSiuYXrjpPk7hVV52lar1nc7vxkDMBEQGdC0aA64nbqJxFjqtZS77mXB2axMCT+ASte+kv6Q==;EndpointSuffix=core.windows.net
+  AllowedOrigins__0: "https://okey.olimpiait.com"
+  KeyVault__ConnectionKeyVault: "false"
+  RECONOSERID_LOGS_HOST: "webapi-aeu-prd-apitrazabilidad-h4arc2dff6dybjgq.eastus-01.azurewebsites.net"
+  RECONOSERID_LOGS_PORT: "443"
+  Trazabilidad__Usuario: "Usu_WebValidadorProd"
+  Trazabilidad__Contrasena: "c|6CND(3<ky;986y"
+  Trazabilidad__Codigo: "69eb1118-bb68-4674-b4a2-6063ae723e95"
+  ConnectionStrings__OKeyConnection: Server=tcp:sdb-aeu-prd-nextgenid.database.windows.net,1433;Initial Catalog=dbs-aeu-prd-okeystudio;Persist Security Info=False;User ID=usrdbokeyproduction;Password=Usrdb0k3ys4ndb0x;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+

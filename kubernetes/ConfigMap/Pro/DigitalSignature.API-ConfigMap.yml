@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: digitalsignature-config
+  namespace: pre-microservice
+data:
+  ConnectionStrings__OKeyConnection: Server=tcp:sdb-aeu-prd-nextgenid.database.windows.net,1433;Initial Catalog=dbs-aeu-prd-okeystudio;Persist Security Info=False;User ID=usrdbokeyproduction;Password=Usrdb0k3ys4ndb0x;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+  ConnectionStrings__AzureBlobStorage: DefaultEndpointsProtocol=https;AccountName=sacaeuprdnextgenid;AccountKey=4y+lId1I8AmSMiaSiuYXrjpPk7hVV52lar1nc7vxkDMBEQGdC0aA64nbqJxFjqtZS77mXB2axMCT+ASte+kv6Q==;EndpointSuffix=core.windows.net 
+  ApiCentralLog__UrlBase: "https://10.160.196.100/apireceivelogs/"
+  ApiCentralLog__Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiI0IiwiZXhwIjoxODYzNTQ1Nzg4LCJpc3MiOiJNaUxvZ3MiLCJhdWQiOiJPbGltcGlhSVQifQ.rx677Q8TIclVw0939QWI_7ShmPbqKzBe6Bj6ePkTJ84
+  ExternalApi__BaseUrlEmissionDocument: "https://webapi-prd-transversales-apicreaciondoc-heawe0h0ggcfgpgc.eastus-01.azurewebsites.net"
+  ExternalApi__BaseUrlSignature: "https://webapi-prd-transversales-apifirmadigita-bkeefvazbbcthya6.eastus-01.azurewebsites.net"
+  KeyVault__ConnectionKeyVault: "false"
+

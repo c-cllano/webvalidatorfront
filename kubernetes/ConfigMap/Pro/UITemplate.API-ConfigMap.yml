@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: uitemplate-config
+  namespace: pre-microservice
+data:
+  ConnectionStrings__MongoDb: mongodb://cdb-aeu-prd-nextgenid:YqCpLau6IZtuOodmIoLDAPL6MLA9AmrAUOY8T1jmfCbOwRt5BAP41qZdvzITZYxRxPqooWctQj4pACDbwcyMsQ==@cdb-aeu-prd-nextgenid.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cdb-aeu-prd-nextgenid@
+  ApiCentralLog__UrlBase: "https://10.160.196.100/apireceivelogs/"
+  ApiCentralLog__Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiI0IiwiZXhwIjoxODYzNTQ1Nzg4LCJpc3MiOiJNaUxvZ3MiLCJhdWQiOiJPbGltcGlhSVQifQ.rx677Q8TIclVw0939QWI_7ShmPbqKzBe6Bj6ePkTJ84 
+  ConnectionStrings__AzureBlobStorage: DefaultEndpointsProtocol=https;AccountName=sacaeuprdnextgenid;AccountKey=4y+lId1I8AmSMiaSiuYXrjpPk7hVV52lar1nc7vxkDMBEQGdC0aA64nbqJxFjqtZS77mXB2axMCT+ASte+kv6Q==;EndpointSuffix=core.windows.net 
+  KeyVault__ConnectionKeyVault: "false"
+

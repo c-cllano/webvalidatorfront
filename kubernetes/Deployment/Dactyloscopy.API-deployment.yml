@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dactyloscopy
+  namespace: pre-microservice
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: dactyloscopy
+  template:
+    metadata:
+      labels:
+        app: dactyloscopy
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+        kubernetes.io/arch: amd64
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - dactyloscopy
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: dactyloscopy
+          image: #{ACR_NAME}#.azurecr.io/nextgenid.api.dactyloscopy:v.#{Build.BuildId}#
+          resources:
+              requests:
+                cpu: 25m
+                memory: 100Mi
+                ephemeral-storage: 2000Mi
+              limits:
+                cpu: 300m
+                memory: 500Mi
+                ephemeral-storage: 5000Mi
+          ports:
+            - containerPort: 7236
+          envFrom:
+            - configMapRef:
+                name: dactyloscopy-config
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:7236
+            - name: TARGET_PLATFORMS
+              value: linux/amd64,linux/arm64

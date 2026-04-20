@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: process-config
+  namespace: pre-microservice
+data:
+  ConnectionStrings__OKeyConnection: Server=tcp:sdb-aeu-prd-nextgenid.database.windows.net,1433;Initial Catalog=dbs-aeu-prd-okeystudio;Persist Security Info=False;User ID=usrdbokeyproduction;Password=Usrdb0k3ys4ndb0x;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+  ApiCentralLog__UrlBase: "https://10.160.196.100/apireceivelogs/"
+  ExternalApi__BaseUrlAdtp: "https://10.160.200.100/apicore"
+  ExternalApi__TokenAdtp: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiIyIiwiZXhwIjoxODYzNzA3NDc4LCJpc3MiOiJNaUFURFAiLCJhdWQiOiJPbGltcGlhSVQifQ.EnL9nHl9RAYkjCz2lh_n2HbdTqJ5z5PaYE1xuDHRviQ
+  ApiCentralLog__Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiI0IiwiZXhwIjoxODYzNTQ1Nzg4LCJpc3MiOiJNaUxvZ3MiLCJhdWQiOiJPbGltcGlhSVQifQ.rx677Q8TIclVw0939QWI_7ShmPbqKzBe6Bj6ePkTJ84
+  ExternalApi__BaseUrlSso: "https://asv-aeu-prd-sso.azurewebsites.net/"
+  ExternalApi__BaseUrlReconoser1: "https://recidaw.olimpiait.com"
+  ExternalApi__BaseUrlReconoser2: "https://recidam.olimpiait.com"
+  ExternalApi__BaseUrlVeriFace: "https://10.160.23.21:3412"
+  RedirectValidationUrl: "https://okey.olimpiait.com/webflow/#/redirect"
+  ApiClient: Angular
+  ApiKey: 5UebhcVqdiSGeMqW431DF 
+  ApiKeyVeriFace: nJhLdcWIx39wLmYqG97uHBsmCB_pcKeFlof4aXBDz2Y
+  RecaptchaSecret: 6Lea8kwsAAAAAFmZZMaPHwvImPXjiD0M0yiMioIO
+  ConnectionStrings__AzureBlobStorage: DefaultEndpointsProtocol=https;AccountName=sacaeuprdnextgenid;AccountKey=4y+lId1I8AmSMiaSiuYXrjpPk7hVV52lar1nc7vxkDMBEQGdC0aA64nbqJxFjqtZS77mXB2axMCT+ASte+kv6Q==;EndpointSuffix=core.windows.net 
+  KeyVault__ConnectionKeyVault: "false"
+  WhatsappService__CodeWhatsapp: "a2342e53-9360-40c1-98c9-067f71f595cb"
+  WhatsappService__UserWhatsapp: "usu_OkeyDev"
+  WhatsappService__PasswordWhatsapp: "{7B300,fvd&D"
+  ExternalApi__BaseUrlWhatsapp: "https://okeyapiwhatsappdev.olimpiait.com"
+  AllowKeys: "true"
+  AllowEncryptBlob: "false"
+

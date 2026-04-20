@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: uiconfiguration-config
+  namespace: pre-microservice
+data:
+  ConnectionStrings__MongoDb: mongodb://cdb-aeu-dev-nextgenid:qAsT0RLbnY9l5gwCj7ZJ6OonyslZm8znnYRMDhwukkGv1jbPc7e1zIICPRthIRmsI4i1rmp3XXOaACDbgn3e0w==@cdb-aeu-dev-nextgenid.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cdb-aeu-dev-nextgenid@ 
+  ApiCentralLog__UrlBase: "http://10.163.196.100/apireceivelogs/"
+  ApiCentralLog__Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiIyIiwiZXhwIjoxODQxMTUwMzk3LCJpc3MiOiJNaUxvZ3MiLCJhdWQiOiJPbGltcGlhSVQifQ.91JVDx437TefA-jLtYF21gnMmD0iC4e_xzifEJN5pa0 
+  ConnectionStrings__AzureBlobStorage: DefaultEndpointsProtocol=https;AccountName=sacaeudevnextgenid;AccountKey=eRb3JE/ghTUC5c3t3a8HgfcAcSIK6olLMBWrgUN5xcqNODk+n4s25ipIcKJnq5v7w+M9M7ESvlHT+AStgBlDMg==;EndpointSuffix=core.windows.net 
+  KeyVault__ConnectionKeyVault: "false"
+

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: process-config
+  namespace: pre-microservice
+data:
+  ConnectionStrings__OKeyConnection: Server=tcp:sdbaeuprenextgenid.database.windows.net,1433;Initial Catalog=dbs-aeu-pre-okeystudio;Persist Security Info=False;User ID=usrdbokeysandbox;Password=Usrdb0k3ys4ndb0x;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+  ApiCentralLog__UrlBase: "http://10.161.196.100/apireceivelogs/"
+  ExternalApi__BaseUrlAdtp: "http://10.161.200.100/apicore"
+  ExternalApi__TokenAdtp: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiI5IiwiZXhwIjoxODY0MzM0NTQ0LCJpc3MiOiJNaUFURFAiLCJhdWQiOiJPbGltcGlhSVQifQ.HTUO0YLEdsZqniAgu3gwX63u7bD39r8wH26uDb4ULoA
+  ApiCentralLog__Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiI1IiwiZXhwIjoxODYwMTYwMDU0LCJpc3MiOiJNaUxvZ3MiLCJhdWQiOiJPbGltcGlhSVQifQ.g8V4W_mSQafmkoqMOBKiNr-nX_v6-_o_cNTmQog_JSQ
+  ExternalApi__BaseUrlSso: "https://asv-aeu-pre-sso.azurewebsites.net/"
+  ExternalApi__BaseUrlReconoser1: "https://demorcs.olimpiait.com:6314"
+  ExternalApi__BaseUrlReconoser2: "https://demorcs.olimpiait.com:6317"
+  ExternalApi__BaseUrlVeriFace: "https://10.161.64.4:3412"
+  RedirectValidationUrl: "https://okeysandbox.olimpiait.com/webflow/#/redirect"
+  ApiClient: Angular
+  ApiKey: 5UebhcVqdiSGeMqW431DF 
+  ApiKeyVeriFace: JbLuuHA4yMYWseYfiekHKz5nDIDtYFLORob5Ffale8o
+  RecaptchaSecret: 6Lci8kwsAAAAALhNcVvod_trv4chQCMHFdIhtgvJ
+  ConnectionStrings__AzureBlobStorage: DefaultEndpointsProtocol=https;AccountName=sacaeuprenextgenid;AccountKey=61wJ+s+JG5AHfLV972nnMdeNrTI5Zi7X5OEIUXwjxfgKv1e3Pcpvursg7kcQ4UKyXao177iK8KiO+AStz8aOyQ==;EndpointSuffix=core.windows.net 
+  KeyVault__ConnectionKeyVault: "false"
+  WhatsappService__CodeWhatsapp: "C74EEAE7-B81B-4C30-BFEC-56034EF2E104"
+  WhatsappService__UserWhatsapp: "usu_OkeyPre"
+  WhatsappService__PasswordWhatsapp: "wP7ti4;5j*@8"
+  ExternalApi__BaseUrlWhatsapp: "https://okeyapiwhatsapppre.olimpiait.com"
+  AllowKeys: "true"
+  AllowEncryptBlob: "false"
+

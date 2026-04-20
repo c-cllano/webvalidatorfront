@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digitalsignature
+  namespace: pre-microservice
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: digitalsignature
+  template:
+    metadata:
+      labels:
+        app: digitalsignature
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+        kubernetes.io/arch: amd64
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - digitalsignature
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: digitalsignature
+          image: #{ACR_NAME}#.azurecr.io/nextgenid.api.digitalsignature:v.#{Build.BuildId}#
+          resources:
+              requests:
+                cpu: 25m
+                memory: 128Mi
+                ephemeral-storage: 2000Mi
+              limits:
+                cpu: 300m
+                memory: 500Mi
+                ephemeral-storage: 5000Mi
+          ports:
+            - containerPort: 7298
+          envFrom:
+            - configMapRef:
+                name: digitalsignature-config
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:7298
+            - name: TARGET_PLATFORMS
+              value: linux/amd64,linux/arm64

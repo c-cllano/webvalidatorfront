@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: digitalsignature-config
+  namespace: pre-microservice
+data:
+  ConnectionStrings__DefaultConnection: Server=tcp:sdbaeudevnextgenid.database.windows.net,1433;Initial Catalog=dbs-aeu-dev-okeystudio;Persist Security Info=False;User ID=usrdbokeyqa;Password=Usrdb0k3ys4ndb0x;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+  ConnectionStrings__OKeyConnection: Server=tcp:sdbaeudevnextgenid.database.windows.net,1433;Initial Catalog=dbs-aeu-dev-okeystudio;Persist Security Info=False;User ID=usrdbokeyqa;Password=Usrdb0k3ys4ndb0x;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+  ConnectionStrings__AzureBlobStorage: DefaultEndpointsProtocol=https;AccountName=sacaeudevnextgenid;AccountKey=eRb3JE/ghTUC5c3t3a8HgfcAcSIK6olLMBWrgUN5xcqNODk+n4s25ipIcKJnq5v7w+M9M7ESvlHT+AStgBlDMg==;EndpointSuffix=core.windows.net 
+  ApiCentralLog__UrlBase: "http://10.163.196.100/apireceivelogs/"
+  ApiCentralLog__Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiIyIiwiZXhwIjoxODQxMTUwMzk3LCJpc3MiOiJNaUxvZ3MiLCJhdWQiOiJPbGltcGlhSVQifQ.91JVDx437TefA-jLtYF21gnMmD0iC4e_xzifEJN5pa0
+  ExternalApi__BaseUrlEmissionDocument: "https://webapi-dev-transversales-apicreaciondoc-g9g7a4d4c9e2d7bu.eastus-01.azurewebsites.net"
+  ExternalApi__BaseUrlSignature: "https://webapi-dev-transversales-apifirmadigital-bshma0btbvbhhrf7.eastus-01.azurewebsites.net"
+  KeyVault__ConnectionKeyVault: "false"
+

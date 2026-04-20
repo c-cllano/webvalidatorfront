@@ -1,0 +1,3003 @@
+{
+  "Routes": [
+    ////----Process.API-----/////
+    {
+      "DownstreamPathTemplate": "/api/Sso/Token",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/Token",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/Token",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/TokenWebflow",
+      "UpstreamHttpMethod": [ "POST" ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30,
+        "Region": "Sso"
+      },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/AgreementProcess/ConsultarProcesoWebToken",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/AgreementProcess/ConsultarProcesoWebToken",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Sso/User/{userId}?updaterUserId={updaterUserId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/User/{userId}?updaterUserId={updaterUserId}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/AgreementProcess/ConsultarProcesoConvenio",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/AgreementProcess/ConsultarProcesoConvenio",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/AgreementByUser/User/{userId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+        }
+      ],
+      "UpstreamPathTemplate": "/AgreementByUser/User/{userId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/AgreementByUser/guid/{Guid}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+        }
+      ],
+      "UpstreamPathTemplate": "/AgreementByUser/guid/{Guid}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Atdp/version/{atdpId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Atdp/version/{atdpId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30,
+        "Region": "Atdp"
+      },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Atdp/transaction/{atdpTransactionId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Atdp/transaction/{atdpTransactionId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Atdp/SaveTransaction",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Atdp/SaveTransaction",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/ForgotPassword",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/ForgotPassword",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Sso/GetTokenUsed",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/GetTokenUsed",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/ResetPassword",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/ResetPassword",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/ChangePassword",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/ChangePassword",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/CreateClient",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/CreateClient",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/Application/Create",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/Application/Create",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/User/Register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/User/Register",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/User/GetUser/{userId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/User/GetUser/{userId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/User/GetUsersByClient/{clientId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/User/GetUsersByClient/{clientId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/User/{userId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/User/{userId}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/User/{userId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/User/{userId}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sso/User/Assignments",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sso/User/Assignments",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/StatusValidationRequest",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/StatusValidationRequest",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/CompareFaces",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/CompareFaces",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/ValidateBiometric",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/ValidateBiometric",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/ValidateBiometricV3",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/ValidateBiometricV3",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/SaveBiometric",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/SaveBiometric",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/SaveBiometricV3",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/SaveBiometricV3",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/UpdateStatus",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/UpdateStatus",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/ConsultValidation",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/ConsultValidation",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/ConsultValidationLegacy",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/ConsultValidationLegacy",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcessExecution/UpdateLastStepAndTrazability",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcessExecution/UpdateLastStepAndTrazability",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Document/UploadFileBlob",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Document/UploadFileBlob",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Document/SaveDocumentBothSides",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Document/SaveDocumentBothSides",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DocumentTypeCapture/GetByCode/{code}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DocumentTypeCapture/GetByCode/{code}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Agreement/GetByClientGuid/{guid}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Agreement/GetByClientGuid/{guid}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Menu/ByAgreementAndUser/{agreementId}/{userId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Menu/ByAgreementAndUser/{agreementId}/{userId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Menu/ActualRoleBySideMenu/{userId}/{agreementId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Menu/ActualRoleBySideMenu/{userId}/{agreementId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Menu/ByRole/{roleId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Menu/ByRole/{roleId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Menu/Permissions",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Menu/Permissions",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ParametersAgreement/{agreementGuid}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ParametersAgreement/{agreementGuid}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ValidationProcess/CancelProcess",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ValidationProcess/CancelProcess",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+        // Inicio: API de Trazabilidad de Terceros
+    {
+        "DownstreamPathTemplate": "/api/TraceDetailProcess",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "RECONOSERID_LOGS_HOST",
+                "Port": "RECONOSERID_LOGS_PORT"
+            }
+        ],
+        "UpstreamPathTemplate": "/Trazability/TraceDetailProcess",
+        "UpstreamHttpMethod": [ "POST" ],
+        "DelegatingHandlers": [
+            "IgnoreSslHandler"
+        ],
+        "RateLimitOptions": {
+            "EnableRateLimiting": true,
+            "ClientWhitelist": [],
+            "Period": "1m",
+            "PeriodTimespan": 1,
+            "Limit": 100
+        }
+    },
+        // Fin: API de Trazabilidad de Terceros
+        {
+            "DownstreamPathTemplate": "/GetClientIp",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/ClientInfo/GetClientIp",
+            "UpstreamHttpMethod": [ "GET" ],
+            "RateLimitOptions": {
+                "EnableRateLimiting": true,
+                "ClientWhitelist": [],
+                "Period": "1m",
+                "PeriodTimespan": 1,
+                "Limit": 100
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/drawflowconfiguration/GetCountriesByRegion",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "DRAWFLOWCONFIGURATION_HOST",
+                    "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/drawflowconfiguration/GetCountriesByRegion",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/drawflowconfiguration/GetDocumentTypeByCountry",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+        }
+      ],
+      "UpstreamPathTemplate": "/drawflowconfiguration/GetDocumentTypeByCountry",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Menu",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Menu",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Menu/NamesByRole/{roleId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Menu/NamesByRole/{roleId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Role/GetRoles/{clientGuid}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Role/GetRoles/{clientGuid}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Role",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Role",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Role/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Role/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Role/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Role/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Role/GetRoleByUser/{id}/{agreementId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Role/GetRoleByUser/{id}/{agreementId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Role/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Role/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Role/{id}/permissions",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Role/{id}/permissions",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Role/{id}/permissions",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Role/{id}/permissions",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/VeriFace/GetTokenVeriFace",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/VeriFace/GetTokenVeriFace",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    // INSERTA AQUI ROLE BY AGREEMENT
+    {
+      "DownstreamPathTemplate": "/api/RoleByAgreement",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/RoleByAgreement",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/RoleByAgreement/role/{roleId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/RoleByAgreement/role/{roleId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/RoleByAgreement",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/RoleByAgreement",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/RoleByAgreement/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/RoleByAgreement/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/RoleByAgreement/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/RoleByAgreement/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/RoleByAgreement/role/{roleId}/agreements",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/RoleByAgreement/role/{roleId}/agreements",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Recaptcha/GetValidateRecaptcha",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Recaptcha/GetValidateRecaptcha",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/MonitoringDataDog/GetMonitoringDataDogImg/{Type}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/MonitoringDataDog/GetMonitoringDataDogImg/{Type}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": {
+        "TtlSeconds": 900,
+        "Region": "DataDog"
+      },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/MobileDeviceInfo/{model}/{os}/{osVersion}/{browser}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/MobileDeviceInfo/{model}/{os}/{osVersion}/{browser}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/MobileDeviceInfo/create-update",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PROCESS_HOST",
+          "Port": "PROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/MobileDeviceInfo/create-update",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    // End Process.API ---////
+
+    ////----DigitalSignature.API-----/////
+    {
+      "DownstreamPathTemplate": "/api/Template/Create",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DIGITALSIGNATURETEMPLATE_HOST",
+          "Port": "DIGITALSIGNATURETEMPLATE_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Template/Create",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Template/Update",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DIGITALSIGNATURETEMPLATE_HOST",
+          "Port": "DIGITALSIGNATURETEMPLATE_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Template/Update",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Template/Get",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DIGITALSIGNATURETEMPLATE_HOST",
+          "Port": "DIGITALSIGNATURETEMPLATE_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Template/Get",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Template/GetFields",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DIGITALSIGNATURETEMPLATE_HOST",
+          "Port": "DIGITALSIGNATURETEMPLATE_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Template/GetFields",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Document/GenerateDocument",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DIGITALSIGNATURETEMPLATE_HOST",
+          "Port": "DIGITALSIGNATURETEMPLATE_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Document/GenerateDocument",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Sign/Sign",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DIGITALSIGNATURETEMPLATE_HOST",
+          "Port": "DIGITALSIGNATURETEMPLATE_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Sign/Sign",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    ////----UIConfiguration.API-----/////
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/SaveUIConfiguration",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/SaveUIConfiguration",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/UpdateUIConfiguration",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/UpdateUIConfiguration",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/ConsultarUIConfiguration",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/ConsultarUIConfiguration",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/ExisteUIConfiguration",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/ExisteUIConfiguration",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/ConsultarListaPaginasActivas",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/ConsultarListaPaginasActivas",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/ConsultarPaginasActivas",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/ConsultarPaginasActivas",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/ConsultarPaginasActivas",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/ConsultarPaginasActivasWebflow",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30,
+        "Region": "UIConfiguration"
+      },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/ConsultarConfiguracionGlobal",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/ConsultarConfiguracionGlobal",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/ConsultarConfiguracionGlobal",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/ConsultarConfiguracionGlobalWebflow",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30,
+        "Region": "UIConfiguration"
+      },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/UpdateDynamicFields",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/UpdateDynamicFields",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/AddDynamicFields",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/AddDynamicFields",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/AddUnitProcess",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/AddUnitProcess",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UIConfiguration/AddAllProcess",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UICONFIGURATION_HOST",
+          "Port": "UICONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UIConfiguration/AddAllProcess",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    ////Dactyloscopy.API/////
+    {
+      "DownstreamPathTemplate": "/api/Forensic/RequestForensicReview",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DACTYLOSCOPY_HOST",
+          "Port": "DACTYLOSCOPY_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Forensic/RequestForensicReview",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Forensic/GetForensicStatus",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DACTYLOSCOPY_HOST",
+          "Port": "DACTYLOSCOPY_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Forensic/GetForensicStatus",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ForensicReview/GetForensicReviewProcessInReview",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DACTYLOSCOPY_HOST",
+          "Port": "DACTYLOSCOPY_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ForensicReview/GetForensicReviewProcessInReview",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ForensicReview/UpdateForensicReviewProcess",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DACTYLOSCOPY_HOST",
+          "Port": "DACTYLOSCOPY_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ForensicReview/UpdateForensicReviewProcess",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    //scream Flowa//////
+    {
+      "DownstreamPathTemplate": "/api/ScreenFlow/GetAllScreenFlow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ScreenFlow/GetAllScreenFlow",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScreenFlow/SaveScreenFlow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ScreenFlow/SaveScreenFlow",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScreenFlow/GetScreenFlowByFilter",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ScreenFlow/GetScreenFlowByFilter",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScreenFlow/UpdateScreenFlow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/ScreenFlow/UpdateScreenFlow",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    ///DrawFlowConfiguration.API////
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/Workflows",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/Workflows",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/duplicateSQLWorkflow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/duplicateSQLWorkflow",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/Template",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/Template",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/ConsultarWorkflow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/ConsultarWorkflow",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/SaveWorkflowNacionalidadesPermitidas",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/SaveWorkflowNacionalidadesPermitidas",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/SaveWorkflowUbicacionesPermitidas",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/SaveWorkflowUbicacionesPermitidas",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/SaveWorkflowTipoDocumento",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/SaveWorkflowTipoDocumento",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/UpdateWorkflow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/UpdateWorkflow",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/SaveWorkflowJson",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/SaveWorkflowJson",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/UpdateWorkflowJson",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/UpdateWorkflowJson",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/GetWorkflowJson",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/GetWorkflowJson",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/ExistByNameAndGUID",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/ExistByNameAndGUID",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/DeleteWorkflowJson",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/DeleteWorkflowJson",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/DeleteWorkflow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/DeleteWorkflow",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/ArchiveWorkflow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/ArchiveWorkflow",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/DesarchiveWorkflow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/DesarchiveWorkflow",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/PauseWorkflow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/PauseWorkflow",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/PublicarWorkflow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/PublicarWorkflow",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowConfiguration/GetWorkflowsByFilter",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowConfiguration/GetWorkflowsByFilter",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/WorkflowNodeConfiguration/GetWorkflowNode",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWCONFIGURATION_HOST",
+          "Port": "DRAWFLOWCONFIGURATION_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/WorkflowNodeConfiguration/GetWorkflowNode",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    ///DrawFlowProcess.API////
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowProcess/GetJsonDrwaFlow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWPROCESS_HOST",
+          "Port": "DRAWFLOWPROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowProcess/GetJsonDrwaFlow",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowProcess/GetProcessFlow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWPROCESS_HOST",
+          "Port": "DRAWFLOWPROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowProcess/GetProcessFlow",
+      "UpstreamHttpMethod": [ "POST" ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30,
+        "Region": "DrawFlowProcess"
+      },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowProcess/TransformJsonDrwaFlow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWPROCESS_HOST",
+          "Port": "DRAWFLOWPROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowProcess/TransformJsonDrwaFlow",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowProcess/GetJsonPages",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWPROCESS_HOST",
+          "Port": "DRAWFLOWPROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowProcess/GetJsonPages",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowProcess/GetGlobalConfiguration",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWPROCESS_HOST",
+          "Port": "DRAWFLOWPROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowProcess/GetGlobalConfiguration",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowProcess/GetGlobalConfigurationByFlow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWPROCESS_HOST",
+          "Port": "DRAWFLOWPROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowProcess/GetGlobalConfigurationByFlow",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowProcess/SaveGlobalConfiguration",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWPROCESS_HOST",
+          "Port": "DRAWFLOWPROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowProcess/SaveGlobalConfiguration",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/DrawFlowProcess/UpdateGlobalConfiguration",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DRAWFLOWPROCESS_HOST",
+          "Port": "DRAWFLOWPROCESS_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/DrawFlowProcess/UpdateGlobalConfiguration",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UITemplate/ConsultarUITemplate",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UITEMPLATE_HOST",
+          "Port": "UITEMPLATE_PORT"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UITemplate/ConsultarUITemplate",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "ClientWhitelist": [],
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "DelegatingHandlers": [
+    "EncodingDelegatingHandler"
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "BASE_URL",
+    "RequestTimeout": 3600000,
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false,
+      "QuotaExceededMessage": "Demasiadas solicitudes. Inténtalo de nuevo más tarde.",
+      "HttpStatusCode": 429,
+      "ClientIdHeader": "X-Forwarded-For"
+    }
+  }
+}

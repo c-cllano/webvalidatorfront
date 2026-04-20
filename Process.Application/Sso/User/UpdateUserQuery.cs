@@ -1,0 +1,24 @@
+﻿using MediatR;
+using Process.Domain.Parameters.Sso.User;
+
+namespace Process.Application.Sso.User
+{
+    public class UpdateUserQuery : IRequest<object>
+    {
+        public int UserId { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string SecondName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string SecondLastName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
+        public string DocumentType { get; set; } = string.Empty;
+        public string DocumentNumber { get; set; } = string.Empty;
+        public int ClientId { get; set; }
+        public int RoleId { get; set; }
+        public string? CellPhone { get; set; }
+        public List<AssignmentRoleAgreements> AssignmentRoleAgreements { get; set; } = new List<AssignmentRoleAgreements>();
+        public long UpdaterUserId { get; set; }
+        public bool Status { get; set; }
+    }
+}

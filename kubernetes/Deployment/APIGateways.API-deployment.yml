@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway
+  namespace: pre-microservice
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: apigateway
+  template:
+    metadata:
+      labels:
+        app: apigateway
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+        kubernetes.io/arch: amd64
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - apigateway
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: apigateway
+          image: #{ACR_NAME}#.azurecr.io/nextgenid.api.apigateway:v.#{Build.BuildId}#
+          resources:
+              requests:
+                cpu: 50m
+                memory: 192Mi
+                ephemeral-storage: 2000Mi
+              limits:
+                cpu: 300m
+                memory: 500Mi
+                ephemeral-storage: 5000Mi
+          ports:
+            - containerPort: 7206
+          envFrom:
+            - configMapRef:
+                name: apigateway-config
+          env:
+            - name: Process.API
+              value: http://process:7292
+            - name: UIConfiguration.API
+              value: http://uiconfiguration:7264
+            - name: Dactyloscopy.API
+              value: http://dactyloscopy:7236
+            - name: DrawFlowProcess.API
+              value: http://drawflowprocess:7240
+            - name: DrawFlowConfiguration.API
+              value: http://drawflowconfiguration:7250
+            - name: UITemplate.API
+              value: http://uitemplate:7288
+            - name: DigitalSignature.API
+              value: http://digitalsignature:7298
+            - name: DIGITALSIGNATURETEMPLATE_HOST
+              value: digitalsignature
+            - name: DIGITALSIGNATURETEMPLATE_PORT
+              value: "7298"
+            - name: PROCESS_HOST
+              value: process
+            - name: PROCESS_PORT
+              value: "7292"
+            - name: UICONFIGURATION_HOST
+              value: uiconfiguration
+            - name: UICONFIGURATION_PORT
+              value: "7264"
+            - name: DACTYLOSCOPY_HOST
+              value: dactyloscopy
+            - name: DACTYLOSCOPY_PORT
+              value: "7236"
+            - name: DRAWFLOWPROCESS_HOST
+              value: drawflowprocess
+            - name: DRAWFLOWPROCESS_PORT
+              value: "7240"
+            - name: DRAWFLOWCONFIGURATION_HOST
+              value: drawflowconfiguration
+            - name: DRAWFLOWCONFIGURATION_PORT
+              value: "7250"
+            - name: UITEMPLATE_HOST
+              value: uitemplate
+            - name: UITEMPLATE_PORT
+              value: "7288"
+            - name: BASE_URL
+              value: http://apigateway:7206
+            - name: ASPNETCORE_URLS
+              value: http://+:7206
+            - name: TARGET_PLATFORMS
+              value: linux/amd64,linux/arm64
+

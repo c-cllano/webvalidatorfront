@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apigateway-config
+  namespace: pre-microservice
+data:
+  OpenIddict__Base: "https://asv-aeu-pre-sso.azurewebsites.net/"
+  ApiCentralLog__UrlBase: "http://10.161.196.100/apireceivelogs/"
+  ApiCentralLog__Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiI1IiwiZXhwIjoxODYwMTYwMDU0LCJpc3MiOiJNaUxvZ3MiLCJhdWQiOiJPbGltcGlhSVQifQ.g8V4W_mSQafmkoqMOBKiNr-nX_v6-_o_cNTmQog_JSQ
+  ConnectionStrings__AzureBlobStorage: DefaultEndpointsProtocol=https;AccountName=sacaeuprenextgenid;AccountKey=61wJ+s+JG5AHfLV972nnMdeNrTI5Zi7X5OEIUXwjxfgKv1e3Pcpvursg7kcQ4UKyXao177iK8KiO+AStz8aOyQ==;EndpointSuffix=core.windows.net
+  AllowedOrigins__0: "https://okeysandbox.olimpiait.com"
+  KeyVault__ConnectionKeyVault: "false"
+  RECONOSERID_LOGS_HOST: "transversales-qas-apitrazabilidad.olimpiait.com"
+  RECONOSERID_LOGS_PORT: "443"
+  Trazabilidad__Usuario: "Usu_tracePru"
+  Trazabilidad__Contrasena: "On>Rm3s5:s4f"
+  Trazabilidad__Codigo: "7ff4f4af-b57f-47b7-b3ce-b3f5ae6d6f81"
+  ConnectionStrings__OKeyConnection: Server=tcp:sdbaeuprenextgenid.database.windows.net,1433;Initial Catalog=dbs-aeu-pre-okeystudio;Persist Security Info=False;User ID=usrdbokeysandbox;Password=Usrdb0k3ys4ndb0x;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+

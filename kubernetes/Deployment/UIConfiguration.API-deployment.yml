@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uiconfiguration
+  namespace: pre-microservice
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: uiconfiguration
+  template:
+    metadata:
+      labels:
+        app: uiconfiguration
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+        kubernetes.io/arch: amd64
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - uiconfiguration
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: uiconfiguration
+          image: #{ACR_NAME}#.azurecr.io/nextgenid.api.uiconfiguration:v.#{Build.BuildId}#
+          resources:
+              requests:
+                cpu: 25m
+                memory: 256Mi
+                ephemeral-storage: 2000Mi
+              limits:
+                cpu: 300m
+                memory: 500Mi
+                ephemeral-storage: 5000Mi
+          ports:
+            - containerPort: 7264
+          envFrom:
+            - configMapRef:
+                name: uiconfiguration-config
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:7264
+            - name: TARGET_PLATFORMS
+              value: linux/amd64,linux/arm64

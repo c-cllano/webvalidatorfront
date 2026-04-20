@@ -1,0 +1,6 @@
+@DrawFlowProcess.API_HostAddress = http://localhost:5125
+
+GET {{DrawFlowProcess.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

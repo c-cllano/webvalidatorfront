@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dactyloscopy-config
+  namespace: pre-microservice
+data:
+  ConnectionStrings__DefaultConnection:  Server=tcp:sdbaeuprenextgenid.database.windows.net,1433;Initial Catalog=dbs-aeu-pre-okeystudio;Persist Security Info=False;User ID=usrdbokeysandbox;Password=Usrdb0k3ys4ndb0x;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30; 
+  ApiCentralLog__UrlBase: "http://10.161.196.100/apireceivelogs/"
+  ApiCentralLog__Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9kdWN0SUQiOiI1IiwiZXhwIjoxODYwMTYwMDU0LCJpc3MiOiJNaUxvZ3MiLCJhdWQiOiJPbGltcGlhSVQifQ.g8V4W_mSQafmkoqMOBKiNr-nX_v6-_o_cNTmQog_JSQ 
+  ConnectionStrings__AzureBlobStorage: DefaultEndpointsProtocol=https;AccountName=sacaeuprenextgenid;AccountKey=61wJ+s+JG5AHfLV972nnMdeNrTI5Zi7X5OEIUXwjxfgKv1e3Pcpvursg7kcQ4UKyXao177iK8KiO+AStz8aOyQ==;EndpointSuffix=core.windows.net
+  ExternalApi__BaseUrlDactyloscopy: "https://demorcs.olimpiait.com:6314"
+  KeyVault__ConnectionKeyVault: "false"
+

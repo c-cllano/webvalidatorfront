@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apigateway
+  namespace: pre-microservice
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2  
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60" 
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"    
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/keepalive: "128"
+    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"     
+    nginx.ingress.kubernetes.io/compute-full-forwarded-for: "true"    
+    nginx.ingress.kubernetes.io/forwarded-for-header: "X-Forwarded-For"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+      - okeysandbox.olimpiait.com
+    secretName: wildcard-olimpia  
+  rules:
+  - host: okeysandbox.olimpiait.com
+    http:
+      paths:   
+      - path: /apigateway(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: apigateway
+            port:
+              number: 7206
