@@ -1,5 +1,5 @@
 using MediatR;
-/* test */
+/* test 2 */
 namespace ApiGateways.Aplication.LogServices.CreateError
 {
     public class CreateErrorCommand : IRequest<bool>
